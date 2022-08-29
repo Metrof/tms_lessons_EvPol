@@ -8,7 +8,7 @@ assert [7, 14, 21, 28, 35] == first_five
 
 from collections import Counter
 
-NUMBERS = [4, 1, 8, 4, 0, 2, 8, 1, 0, 4]
+NUMBERS = [4, 1, 8, 4, 0, 2, 8, 1, 0, 4, 8]
 
 count = Counter(NUMBERS)  # Получает словарь с ключем - значением элемента, значением - количество идентичных элементов в списке
 item_list = list(count.items())
@@ -17,8 +17,11 @@ for i in range(len(count)):
     if current_value[1] > 1:
         for b in range(current_value[1] - 1):  # Если в списке несколько идентичных элементов, то цикл удаляет первые по списку дубликаты оставляя один
             NUMBERS.remove(current_value[0])
-assert [2, 8, 1, 0, 4] == NUMBERS
+assert [2, 1, 0, 4, 8] == NUMBERS
 
+new_dict = dict.fromkeys(NUMBERS)
+abbreviated_list = list(new_dict.keys())
+assert [2, 1, 0, 4, 8] == abbreviated_list
 # Ex 3
 
 set_list = set(NUMBERS)
